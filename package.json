@@ -4,15 +4,17 @@
   "description": "Projeto Projeto criado para mostrar como criar uma azure function",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc && func start"
   },
   "author": "Marcos Alexandre",
   "license": "ISC",
   "dependencies": {
     "@azure/functions": "^3.5.0",
+    "@prisma/client": "^4.11.0",
     "typecript": "^0.0.1-security"
   },
   "devDependencies": {
-    "@types/node": "^18.15.0"
+    "@types/node": "^18.15.0",
+    "prisma": "^4.11.0"
   }
 }

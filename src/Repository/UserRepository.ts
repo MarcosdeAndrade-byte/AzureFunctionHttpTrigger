@@ -29,6 +29,10 @@ class UserRepository {
         await prisma.user.update({ where: { id }, data: {email: email, name: name, age: age} });
     }
 
+    async deleteUser(id: number) {
+        await prisma.user.delete({ where: {id} });
+    }
+
     async main() {
         prisma.$connect().catch(reject => console.log(reject));
     }

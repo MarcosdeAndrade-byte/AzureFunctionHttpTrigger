@@ -2,8 +2,14 @@ import { PrismaClient } from '@prisma/client'
 
 const prisma = new PrismaClient();
 
-class UserRepository {
+type User = {
+    id: number;
+    name: string;
+    email: string;
+    age: number;
+}
 
+class UserRepository {
     async createUser(name: string, email: string, age: number) {
         const user = await prisma.user.create({
             data: {
@@ -12,8 +18,11 @@ class UserRepository {
                 age: age
             }
         });
+    }
 
-        console.log(user);
+    async listUser(email: string): Promise<User> {
+        const user = await prisma.user.findUnique({ where: { email }});
+        return user;
     }
 
     async main() {

@@ -25,6 +25,10 @@ class UserRepository {
         return user;
     }
 
+    async updateUser(id: number, email: string, name: string,age: number): Promise<void> {
+        await prisma.user.update({ where: { id }, data: {email: email, name: name, age: age} });
+    }
+
     async main() {
         prisma.$connect().catch(reject => console.log(reject));
     }

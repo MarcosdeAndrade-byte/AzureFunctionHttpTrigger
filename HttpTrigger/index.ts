@@ -7,8 +7,6 @@ const httpTrigger: AzureFunction = async function (context: Context, req: HttpRe
 
     const userRepository = new UserRepository();
 
-    userRepository.main()
-
     userRepository.createUser(name,email,age);
 };
 
